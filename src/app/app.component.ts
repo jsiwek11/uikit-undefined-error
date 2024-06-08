@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+declare var UIkit: any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,4 +12,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'scratchtest';
+
+
+
+  ngOnInit() {
+
+    UIkit.util.on(document, 'beforeshow', '.uk-tooltip', function(e: any) {
+        e.preventDefault();
+    });
+  }
+
+
 }
